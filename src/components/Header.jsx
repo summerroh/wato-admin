@@ -1,11 +1,15 @@
-import profilePicture from '../images/profile-picture.png';
-import bell from '../images/bell.svg';
-import { Link } from 'react-router-dom';
+import profilePicture from "../images/profile-picture.png";
+import bell from "../images/bell.svg";
+import { Link } from "react-router-dom";
 
 export const Header = ({ userInfo, links }) => {
-  const user = { ...userInfo, name: 'Emre', avatar: profilePicture };
+  const user = { ...userInfo, name: "Emre", avatar: profilePicture };
   return (
-    <header className="flex justify-between items-center bg-white shadow-[0_4px_20px_0px_rgba(0,0,0,0.1)] pb-7 pt-6 pl-[58px] pr-[71px]">
+    <header
+      className={`flex justify-between items-center pb-7 pt-6 pl-[58px] pr-[71px] ${
+        !links ? "bg-white shadow-[0_4px_20px_0px_rgba(0,0,0,0.1)]" : ""
+      }`}
+    >
       <Link to="/">
         <p className="text-4xl/7 font-semibold text-life">
           Life<span className="text-plusplus">++</span>

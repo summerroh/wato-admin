@@ -1,14 +1,12 @@
-import { useState } from 'react';
-import { Menu } from '@headlessui/react';
-import { NameComboBox } from './NameComboBox';
+import { useState } from "react";
 
 export const Form = () => {
   const [inputValues, setInputValues] = useState({
-    name: '',
+    name: "",
     age: 0,
-    gender: '',
-    medicalHistory: '',
-    currentMedication: '',
+    gender: "",
+    medicalHistory: "",
+    currentMedication: "",
     symptoms: {
       fever: false,
       stomachPain: false,
@@ -107,34 +105,7 @@ export const Form = () => {
           />
         </label>
         {/* button for adding another input option */}
-        <Menu>
-          <Menu.Button className="outline">Symptoms</Menu.Button>
-          <Menu.Items>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  className={`${active && 'bg-blue-500'}`}
-                  href="/account-settings"
-                >
-                  Account settings
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  className={`${active && 'bg-blue-500'}`}
-                  href="/account-settings"
-                >
-                  Documentation
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item disabled>
-              <span className="opacity-75">Invite a friend (coming soon!)</span>
-            </Menu.Item>
-          </Menu.Items>
-        </Menu>
+
         {/* <label>
           <input
             type="checkbox"
