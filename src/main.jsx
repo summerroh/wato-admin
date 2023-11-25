@@ -6,11 +6,12 @@ import App from "./App.jsx";
 import "./index.css";
 import Dashboard from "./routes/Dashboard";
 import Dignosis from "./routes/Dignosis";
+import Main from "./routes/Main";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Main />,
   },
   {
     path: "/dashboard",
