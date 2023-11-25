@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Sidebar } from './Sidebar';
+import { Menu } from '@headlessui/react';
+import { NameComboBox } from './NameComboBox';
 
 export const Form = () => {
   const [inputValues, setInputValues] = useState({
@@ -41,16 +42,18 @@ export const Form = () => {
 
   console.log(inputValues);
   return (
-    <div className="flex h-screen">
-      <Sidebar />
+    <div className="pl-[58px] h-screen">
+      <h1 className="text-[50px] font-bold pt-16 pb-[106px]">
+        Start By Answering
+      </h1>
       <form
-        className="flex flex-wrap justify-between gap-2.5 max-w-5xl"
+        className="flex flex-wrap gap-x-[109px] gap-y-[60px] max-w-[935px]"
         onSubmit={handleSubmit}
       >
         <label className="items-start flex flex-col text-[28px] gap-y-3 font-bold">
           Name
           <input
-            className="outline rounded-lg outline-[#CCDFFF] p-4 text-[#00003C]"
+            className="outline rounded-lg outline-[#CCDFFF] p-2 text-[#00003C] w-[297px] w-full placeholder: text-base font-light"
             type="text"
             name="name"
             value={inputValues.name}
@@ -61,7 +64,7 @@ export const Form = () => {
         <label className="flex flex-col items-start text-[28px] gap-y-3 font-bold">
           Age
           <input
-            className="outline rounded-lg outline-[#CCDFFF] max-w-[149px]"
+            className="outline rounded-lg p-2 outline-[#CCDFFF] max-w-[149px] placeholder: text-base font-light"
             type="number"
             name="age"
             onChange={handleChange}
@@ -72,7 +75,7 @@ export const Form = () => {
         <label className="flex flex-col items-start text-[28px] gap-y-3 font-bold">
           Gender
           <input
-            className="outline rounded-lg outline-[#CCDFFF] max-w-[149px]"
+            className="outline rounded-lg p-2 outline-[#CCDFFF] max-w-[149px] placeholder: text-base font-light"
             type="text"
             name="gender"
             onChange={handleChange}
@@ -83,7 +86,7 @@ export const Form = () => {
         <label className="flex flex-col items-start text-[28px] gap-y-3 font-bold">
           Medical History
           <input
-            className="outline rounded-lg outline-[#CCDFFF] max-w-[253px]"
+            className="outline rounded-lg p-2 outline-[#CCDFFF] max-w-[253px] placeholder: text-base font-light"
             type="text"
             name="medicalHistory"
             onChange={handleChange}
@@ -95,7 +98,7 @@ export const Form = () => {
         <label className="flex flex-col items-start text-[28px] gap-y-3 font-bold">
           Medication List
           <input
-            className="outline rounded-lg outline-[#CCDFFF]"
+            className="outline rounded-lg p-2 outline-[#CCDFFF] placeholder: text-base font-light"
             type="text"
             name="currentMedication"
             onChange={handleChange}
@@ -104,7 +107,35 @@ export const Form = () => {
           />
         </label>
         {/* button for adding another input option */}
-        <label>
+        <Menu>
+          <Menu.Button className="outline">Symptoms</Menu.Button>
+          <Menu.Items>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  className={`${active && 'bg-blue-500'}`}
+                  href="/account-settings"
+                >
+                  Account settings
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  className={`${active && 'bg-blue-500'}`}
+                  href="/account-settings"
+                >
+                  Documentation
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item disabled>
+              <span className="opacity-75">Invite a friend (coming soon!)</span>
+            </Menu.Item>
+          </Menu.Items>
+        </Menu>
+        {/* <label>
           <input
             type="checkbox"
             name="fever"
@@ -166,7 +197,7 @@ export const Form = () => {
             onChange={handleCheckboxChange}
           />
           Light Headedness
-        </label>
+        </label> */}
         <button type="submit">Get Diagnosis</button>
       </form>
     </div>

@@ -6,7 +6,13 @@ export default {
       ...theme('colors'),
       sidebar: '#1F1E24;',
     }),
-    extend: {},
+    extend: {
+      colors: {
+        life: '#54BD95',
+        plusplus: '#0061FF',
+        link: '#6F6F6F',
+      },
+    },
   },
   plugins: [],
 };
