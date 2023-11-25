@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Sidebar } from './Sidebar';
+import { Menu } from '@headlessui/react';
+import { NameComboBox } from './NameComboBox';
 
 export const Form = () => {
   const [inputValues, setInputValues] = useState({
@@ -106,7 +107,35 @@ export const Form = () => {
           />
         </label>
         {/* button for adding another input option */}
-        <label>
+        <Menu>
+          <Menu.Button className="outline">Symptoms</Menu.Button>
+          <Menu.Items>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  className={`${active && 'bg-blue-500'}`}
+                  href="/account-settings"
+                >
+                  Account settings
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  className={`${active && 'bg-blue-500'}`}
+                  href="/account-settings"
+                >
+                  Documentation
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item disabled>
+              <span className="opacity-75">Invite a friend (coming soon!)</span>
+            </Menu.Item>
+          </Menu.Items>
+        </Menu>
+        {/* <label>
           <input
             type="checkbox"
             name="fever"
@@ -168,7 +197,7 @@ export const Form = () => {
             onChange={handleCheckboxChange}
           />
           Light Headedness
-        </label>
+        </label> */}
         <button type="submit">Get Diagnosis</button>
       </form>
     </div>
