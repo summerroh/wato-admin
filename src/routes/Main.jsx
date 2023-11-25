@@ -42,7 +42,7 @@ export default function Main() {
             <h1 className="text-[90px] font-bold pt-16 pb-[106px] font-display leading-extra-tight">
               Make a <br />
               Better <br />
-              Dignosis
+              Diagnosis
             </h1>
             <img
               src={greenLine}

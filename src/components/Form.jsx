@@ -31,7 +31,7 @@ export const Form = () => {
   };
 
   const getDiagnose = async () => {
-    console.log("get dignose");
+    console.log("get diagnose");
     // console.log(currentUser._id, symptoms);
     const res = await API.GetDiagnose(currentUser._id, symptoms);
     console.log(res);
