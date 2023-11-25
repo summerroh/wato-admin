@@ -1,20 +1,14 @@
-# Use an official Node runtime as a parent image
-FROM node:14
+FROM node:18-alpine3.17 as build
 
-# Set the working directory in the container
 WORKDIR /app
+COPY . /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install app dependencies
 RUN npm install
+RUN npm run build
 
-# Copy the rest of the application code to the working directory
-COPY . .
-
-# Expose port 3000 for the React development server
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install nginx -y
+COPY --from=build /app/dist /var/www/html/
 EXPOSE 3000
-
-# Start the React development server
-CMD ["npm", "start"]
+CMD ["nginx","-g","daemon off;"]
