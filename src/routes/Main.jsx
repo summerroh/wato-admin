@@ -1,9 +1,9 @@
-import React from "react";
-import { Header } from "../components/Header";
+import React from 'react';
+import { Header } from '../components/Header';
 
-import mainRight from "../images/main-right.png";
-import mainLeft from "../images/main-left.png";
-import greenLine from "../images/green-line.png";
+import mainRight from '../images/main-right.png';
+import mainLeft from '../images/main-left.png';
+import greenLine from '../images/green-line.png';
 
 export default function Main() {
   return (
@@ -18,19 +18,19 @@ export default function Main() {
             src={mainRight}
             alt="main image"
             style={{
-              position: "absolute",
+              position: 'absolute',
               top: 0,
               bottom: 0,
               right: 0,
               zIndex: -10,
-              height: "110%",
+              height: '110%',
             }}
           />
           <img
             src={mainLeft}
             alt="main image"
             style={{
-              position: "absolute",
+              position: 'absolute',
               top: 0,
               bottom: 0,
               left: -100,
@@ -48,8 +48,8 @@ export default function Main() {
               src={greenLine}
               alt="line image"
               style={{
-                width: "479px",
-                height: "26px",
+                width: '479px',
+                height: '26px',
               }}
             />
             <div className="w-80">
