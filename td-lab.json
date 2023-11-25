@@ -1,15 +1,15 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:483383923557:task-definition/frontend-services-TD:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:483383923557:task-definition/frontend-services-TD:12",
     "containerDefinitions": [
         {
             "name": "container-name",
             "image": "nginx",
-            "cpu": 1024,
-            "memory": 2048,
+            "cpu": 256,
+            "memory": 512,
             "portMappings": [
                 {
-                    "containerPort": 3000,
-                    "hostPort": 3000,
+                    "containerPort": 80,
+                    "hostPort": 80,
                     "protocol": "tcp"
                 }
             ],
@@ -31,7 +31,7 @@
     "family": "frontend-services-TD",
     "executionRoleArn": "arn:aws:iam::483383923557:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 12,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -62,9 +62,9 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "1024",
-    "memory": "2048",
-    "registeredAt": "2023-11-25T04:53:52.584Z",
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2023-11-25T11:07:36.750Z",
     "registeredBy": "arn:aws:iam::483383923557:user/emre",
     "tags": []
 }
