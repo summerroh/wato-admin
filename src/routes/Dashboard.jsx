@@ -5,7 +5,7 @@ export default function Dashboard() {
   return (
     <div className="flex h-screen">
       <Sidebar />
-      <div className="max-w-[1070px]">
+      <div className="grow">
         <Header />
         <Form />
       </div>
