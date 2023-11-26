@@ -9,6 +9,7 @@ export default {
       ...theme("colors"),
       sidebar: "#1F1E24;",
       plus: "#F2F7FF",
+      white: "#FFFFFF",
     }),
     extend: {
       colors: {
@@ -22,7 +23,7 @@ export default {
         medium: "#FFFCEA",
         mediumBorder: "#FFCF87",
         low: "#EBF8FF",
-        lowBorder: "#E1D5EC",
+        lowBorder: "#99C0FF",
         redtitle: "#E64141",
         orangetitle: "#F2841F",
         superwhite: "#ffffff",
