@@ -6,8 +6,10 @@ export const Header = ({ userInfo, links }) => {
   const user = { ...userInfo, name: "Emre", avatar: profilePicture };
   return (
     <header
-      className={`flex justify-between items-center pb-7 pt-6 pl-[58px] pr-[71px] ${
-        !links ? "bg-white shadow-[0_4px_20px_0px_rgba(0,0,0,0.1)]" : ""
+      className={`flex justify-between items-center pb-7 pt-6 pr-[71px] ${
+        !links
+          ? "bg-white shadow-[0_4px_20px_0px_rgba(0,0,0,0.1)] pl-[58px]"
+          : "pl-[154px]"
       }`}
     >
       <Link to="/">

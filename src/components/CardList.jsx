@@ -1,4 +1,4 @@
-import { Card } from './Card';
+import { Card } from "./Card";
 
 export const CardList = ({ items }) => {
   // const high = [
@@ -26,7 +26,7 @@ export const CardList = ({ items }) => {
   // console.log(items);
   const high = items.filter((item) => item.emergency_nature > 60);
   if (high) {
-    console.log('high');
+    console.log("high");
   }
   const medium = items.filter(
     (item) => item.emergency_nature >= 35 && item.emergency_nature < 59
@@ -70,11 +70,11 @@ export const CardList = ({ items }) => {
   // ];
   // console.log(low);
   return (
-    <div className="pl-[58px] pt-[75px] font-display max-w-[1000px]">
+    <div className="pl-[58px] pt-[75px] font-display max-w-[1000px] h-screen">
       <h1 className="font-display text-[52px] font-semibold pb-[70px]">
         Diagnosis
       </h1>
-      <h2 className="text-3xl font-medium pb-7">High Severity</h2>
+      <h2 className="text-3xl font-regular pb-7">High Severity</h2>
       <div className="flex flex-wrap gap-[22px] pb-9">
         {high.length > 0 ? (
           high.map((item, index) => (
@@ -82,6 +82,7 @@ export const CardList = ({ items }) => {
               className="bg-high border-highBorder border-[1.5px]"
               item={item}
               key={index}
+              textColor={"#E64141"}
             />
           ))
         ) : (
@@ -96,6 +97,7 @@ export const CardList = ({ items }) => {
               className="bg-medium border-mediumBorder border-[1.5px]"
               item={item}
               key={index}
+              textColor={"#F2841F"}
             />
           ))
         ) : (
@@ -110,6 +112,7 @@ export const CardList = ({ items }) => {
               className="bg-low border-lowBorder border-[1.5px]"
               item={item}
               key={index}
+              textColor={"#0061FF"}
             />
           ))
         ) : (
