@@ -9,18 +9,19 @@ export const Card = ({ item, className, textColor }) => {
         {disease_name}
       </h1>
       <p className="font-light">{description}</p>
-      {tags.map((item) => {
-        return (
-          <div className="m-w-[250px] top-[110px] flex flex-wrap gap-x-2 gap-y-2">
+      <div className="m-w-[250px] top-[110px] flex flex-wrap gap-x-2 gap-y-2">
+        {tags.map((item) => {
+          return (
             <span
-              className="text-plusplus bg-plus text-base font-normal px-4 py-3 rounded-[40px] "
+              className="border border-lowborder bg-white text-sm font-normal px-3 py-2 rounded-[8px] font-semibold"
               key={item}
+              style={{ color: textColor }}
             >
               {item}
             </span>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
