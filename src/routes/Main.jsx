@@ -1,11 +1,14 @@
 import React from "react";
 import { Header } from "../components/Header";
+import { Navigate, useNavigate } from "react-router";
 
 import mainRight from "../images/main-right.png";
 import mainLeft from "../images/main-left.png";
 import greenLine from "../images/green-line.png";
 
 export default function Main() {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="z-10">
@@ -68,6 +71,7 @@ export default function Main() {
             <button
               className="rounded-[40px] outline text-xl bg-button text-white py-5 px-[30px] self-center mt-8 mx-auto"
               type="submit"
+              onClick={() => navigate("/dashboard")}
             >
               Get Started
             </button>
