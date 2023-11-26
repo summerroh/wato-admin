@@ -50,6 +50,9 @@ export default function Main() {
               style={{
                 width: "530px",
                 height: "28px",
+
+                // width: '479px',
+                // height: '26px',
               }}
             />
             <div className="w-[500px]">

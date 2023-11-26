@@ -8,7 +8,7 @@ export const Sidebar = () => {
   return (
     <aside className=" px-[27px] flex flex-col justify-between bg-sidebar text-white text-xl max-w-[239px] pt-[84px] ">
       <div className="gap-y-7 flex flex-col">
-        <a href="#" className="flex gap-x-2">
+        <a href="/dashboard" className="flex gap-x-2">
           <img src={airplay} />
           Dashboard
         </a>

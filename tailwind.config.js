@@ -17,6 +17,12 @@ export default {
         link: '#6F6F6F',
         button: '#54BD95',
         blueplus: '#0061FF',
+        high: '#FFEBEB',
+        highBorder: '#FFBFBF',
+        medium: '#FFFCEA',
+        mediumBorder: '#FFCF87',
+        low: '#EBF8FF',
+        lowBorder: '#E1D5EC',
       },
       mainBackgroundImage: {
         'main-right': "url('/src/images/main-right.png')",
