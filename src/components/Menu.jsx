@@ -1,91 +1,205 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
-import home from "../assets/app01.png";
-import homeOn from "../assets/app01_on.png";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-import recommend from "../assets/app02.png";
-import recommendOn from "../assets/app02_on.png";
-import mypage from "../assets/app03.png";
-import mypageOn from "../assets/app03_on.png";
-import alerticon from "../assets/app04.png";
-import alerticonOn from "../assets/app04_on.png";
+import powerOn from "../assets/power_on.png";
+import powerOff from "../assets/power_off.png";
+import { useState } from "react";
 
 export default function Menu() {
-  const location = useLocation();
-  const isIndex = location.pathname === "/index";
-  const isRecommend = location.pathname === "/recommend";
-  const isMypage = location.pathname === "/mypage";
-  const isAlarm = location.pathname === "/alarm";
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="w-10 bg-white p-2 lg:p-4 lg:static fixed bottom-0 left-0 w-full z-10 lg:z-auto lg:w-auto lg:flex lg:flex-col lg:items-start rounded-xl border-slate-300 border shadow-md lg:h-80">
-      <div className="flex justify-between lg:flex-col lg:space-y-8 px-4 lg:px-0">
-        <Link to="/index">
-          <div className="flex flex-col items-center space-y-1">
-            <img
-              src={isIndex ? homeOn : home}
-              alt="Home Icon"
-              className="w-6"
-            />
-            <p
-              className={`text-sm font-medium ${
-                isIndex ? "text-primary" : "text-gray-500"
-              }`}
-            >
-              홈
-            </p>
-          </div>
-        </Link>
-        <Link to="/recommend">
-          <div className="flex flex-col items-center space-y-1">
-            <img
-              src={isRecommend ? recommendOn : recommend}
-              alt="Recommend Icon"
-              className="w-6"
-            />
-            <p
-              className={`text-sm font-medium ${
-                isRecommend ? "text-primary" : "text-gray-500"
-              }`}
-            >
-              추천
-            </p>
-          </div>
-        </Link>
-        <Link to="/mypage">
-          <div className="flex flex-col items-center space-y-1">
-            <img
-              src={isMypage ? mypageOn : mypage}
-              alt="My Page Icon"
-              className="w-6"
-            />
-            <p
-              className={`text-sm font-medium ${
-                isMypage ? "text-primary" : "text-gray-500"
-              }`}
-            >
-              마이페이지
-            </p>
-          </div>
-        </Link>
-        <Link to="/alarm">
-          <div className="flex flex-col items-center space-y-1">
-            <img
-              src={isAlarm ? alerticonOn : alerticon}
-              alt="Alert Icon"
-              className="w-6"
-            />
-            <p
-              className={`text-sm font-medium ${
-                isAlarm ? "text-primary" : "text-gray-500"
-              }`}
-            >
-              알림
-            </p>
-          </div>
-        </Link>
+    <>
+      <div className="bg-[#239EC1] text-white p-5 rounded-t-lg">
+        <div className="flex justify-between items-center py-1">
+          <h2 className="text-lg font-bold">관리자</h2>
+          <button
+            onMouseOver={() => setIsHovered(true)}
+            onMouseOut={() => setIsHovered(false)}
+            className="w-7 h-7 bg-no-repeat bg-center bg-cover"
+            style={{
+              backgroundImage: `url(${isHovered ? powerOn : powerOff})`,
+              border: "none",
+              outline: "none",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              // Handle button click event here
+            }}
+          />
+        </div>
       </div>
-    </div>
+      <div className="bg-white p-5 rounded-b-lg shadow h-full">
+        <div className="flex flex-col space-y-3">
+          <AccordionDemo />
+        </div>
+      </div>
+    </>
+  );
+}
+
+function AccordionDemo() {
+  const [openAccordion, setOpenAccordion] = useState(null);
+
+  const handleAccordionClick = (value) => {
+    setOpenAccordion(openAccordion === value ? null : value);
+  };
+
+  const isAccordionOpen = (value) => {
+    return openAccordion === value;
+  };
+
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger
+          className={`text-sm bg-gray-50 px-4 rounded-lg mb-3 ${
+            isAccordionOpen("item-1")
+              ? "bg-[#239EC1] text-white"
+              : "bg-gray-50 text-black"
+          }`}
+          onClick={() => handleAccordionClick("item-1")}
+        >
+          회원관리
+        </AccordionTrigger>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-[13px] text-gray-500">회원관리</Link>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger
+          className={`text-sm bg-gray-50 px-4 rounded-lg mb-3 ${
+            isAccordionOpen("item-2")
+              ? "bg-[#239EC1] text-white"
+              : "bg-gray-50 text-black"
+          }`}
+          onClick={() => handleAccordionClick("item-2")}
+        >
+          고객센터
+        </AccordionTrigger>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">공지사항</Link>
+        </AccordionContent>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">FAQ</Link>
+        </AccordionContent>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">신고관리</Link>
+        </AccordionContent>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">차단관리</Link>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger
+          className={`text-sm bg-gray-50 px-4 rounded-lg mb-3 ${
+            isAccordionOpen("item-3")
+              ? "bg-[#239EC1] text-white"
+              : "bg-gray-50 text-black"
+          }`}
+          onClick={() => handleAccordionClick("item-3")}
+        >
+          게시글 관리
+        </AccordionTrigger>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">분류관리</Link>
+        </AccordionContent>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">게시글관리</Link>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-4">
+        <AccordionTrigger
+          className={`text-sm bg-gray-50 px-4 rounded-lg mb-3 ${
+            isAccordionOpen("item-4")
+              ? "bg-[#239EC1] text-white"
+              : "bg-gray-50 text-black"
+          }`}
+          onClick={() => handleAccordionClick("item-4")}
+        >
+          컨텐츠 관리
+        </AccordionTrigger>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">배너 관리</Link>
+        </AccordionContent>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">이벤트 관리</Link>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-5">
+        <AccordionTrigger
+          className={`text-sm bg-gray-50 px-4 rounded-lg mb-3 ${
+            isAccordionOpen("item-5")
+              ? "bg-[#239EC1] text-white"
+              : "bg-gray-50 text-black"
+          }`}
+          onClick={() => handleAccordionClick("item-5")}
+        >
+          알림 관리
+        </AccordionTrigger>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">알림 관리</Link>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-6">
+        <AccordionTrigger
+          className={`text-sm bg-gray-50 px-4 rounded-lg mb-3 ${
+            isAccordionOpen("item-6")
+              ? "bg-[#239EC1] text-white"
+              : "bg-gray-50 text-black"
+          }`}
+          onClick={() => handleAccordionClick("item-6")}
+        >
+          고객 문의
+        </AccordionTrigger>
+        <AccordionContent className="px-4 pt-2">
+          <Link className="text-sm text-gray-500">고객 문의</Link>
+        </AccordionContent>
+        <AccordionItem value="item-7">
+          <AccordionTrigger
+            className={`text-sm bg-gray-50 px-4 rounded-lg mb-3 ${
+              isAccordionOpen("item-7")
+                ? "bg-[#239EC1] text-white"
+                : "bg-gray-50 text-black"
+            }`}
+            onClick={() => handleAccordionClick("item-7")}
+          >
+            설정 관리
+          </AccordionTrigger>
+          <AccordionContent className="px-4 pt-2">
+            <Link className="text-sm text-gray-500">개인정보 처리방침</Link>
+          </AccordionContent>
+          <AccordionContent className="px-4 pt-2">
+            <Link className="text-sm text-gray-500">정보보호정책</Link>
+          </AccordionContent>
+        </AccordionItem>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   );
 }
