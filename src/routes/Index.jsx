@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Menu from "../components/Menu";
 import Topbar from "../components/Topbar";
@@ -39,55 +40,59 @@ const data = [
 
 const Card = ({ title, p, tag, country, date, icon, padding }) => {
   return (
-    <div className={`w-full pb-4 pl-4`}>
-      <div className="p-4 flex flex-col rounded-lg shadow-sm bg-white justify-start space-y-4">
-        <div className="flex flex-row items-center justify-between pb-4 border-b border-gray-200">
-          <div className="flex flex-row items-center">
-            {country && (
-              <img
-                src={korea}
-                alt="Recommend Icon"
-                className="w-6 h-6 object-cover"
-              />
-            )}
-            <p className="text-md font-medium ml-2 text-gray-500 ">{country}</p>
+    <Link to="/indexdetail">
+      <div className={`w-full pb-4`}>
+        <div className="p-4 flex flex-col rounded-lg shadow-sm bg-white justify-start space-y-4">
+          <div className="flex flex-row items-center justify-between pb-4 border-b border-gray-200">
+            <div className="flex flex-row items-center">
+              {country && (
+                <img
+                  src={korea}
+                  alt="Recommend Icon"
+                  className="w-6 h-6 object-cover"
+                />
+              )}
+              <p className="text-md font-medium ml-2 text-gray-500 ">
+                {country}
+              </p>
+            </div>
+            <span class="bg-blue-50 text-primary text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+              잡담
+            </span>
           </div>
-          <span class="bg-blue-50 text-primary text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-            잡담
-          </span>
-        </div>
-        <div className="flex flex-row items-center justify-between">
-          <h1 className="text-lg font-regular">{title}</h1>
-          <p className="text-sm font-medium ml-2 text-gray-400">{date}</p>
-        </div>
-        <p className="text-md font-regular text-gray-400 pb-4 border-b border-gray-200">
-          {p}
-        </p>
+          <div className="flex flex-row items-center justify-between">
+            <h1 className="text-lg font-regular">{title}</h1>
+            <p className="text-sm font-medium ml-2 text-gray-400">{date}</p>
+          </div>
+          <p className="text-md font-regular text-gray-400 pb-4 border-b border-gray-200">
+            {p}
+          </p>
 
-        <div className="flex flex-row items-center justify-between pb-4">
-          <div className="flex flex-row items-center">
-            {country && (
-              <img
-                src={bubble}
-                alt="Recommend Icon"
-                className="w-6 h-6 object-cover"
-              />
-            )}
-            <h1 className="text-lg font-medium text-gray-400 pl-1">15</h1>
-          </div>
-          <div className="flex flex-row items-center">
-            {country && (
-              <img
-                src={comment}
-                alt="Recommend Icon"
-                className="w-6 h-6 object-cover"
-              />
-            )}
-            <h1 className="text-lg font-regular text-primary">댓글</h1>
+          <div className="flex flex-row items-center justify-between pb-4">
+            <div className="flex flex-row items-center">
+              {country && (
+                <img
+                  src={bubble}
+                  alt="Recommend Icon"
+                  className="w-6 h-6 object-cover"
+                />
+              )}
+              <h1 className="text-lg font-medium text-gray-400 pl-1">15</h1>
+            </div>
+            <div className="flex flex-row items-center">
+              {country && (
+                <img
+                  src={comment}
+                  alt="Recommend Icon"
+                  className="w-6 h-6 object-cover"
+                />
+              )}
+              <h1 className="text-lg font-regular text-primary">댓글</h1>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -95,11 +100,11 @@ export default function Index() {
   return (
     <div className="flex flex-col lg:flex-row bg-gray-100 min-h-screen">
       <div className="flex-1">
-        <LogoTopbar title={"홈"} />
-        <div className="max-w-3xl mx-auto py-10 flex">
+        <LogoTopbar />
+        <div className="max-w-3xl mx-auto pt-3 pb-16 flex">
           <Menu />
-          <div className="flex flex-1 ml-4 flex-wrap space-y-6">
-            <div className="pl-4">
+          <div className="flex flex-1 ml-5 mr-5 lg:ml-8 lg:mr-8 flex-wrap space-y-6">
+            <div className="">
               <span class="bg-primary text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                 전체
               </span>
@@ -129,7 +134,7 @@ export default function Index() {
               </span>
             </div>
 
-            <img src={banner} alt="Home Icon" className="w-full pl-3" />
+            <img src={banner} alt="Home Icon" className="w-full" />
             <div className="flex flex-col w-full">
               {data.map((doc, index) => (
                 <Card key={index} {...doc} />

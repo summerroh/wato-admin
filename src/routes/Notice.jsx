@@ -35,7 +35,7 @@ export default function Notice() {
         <Topbar title={"공지사항"} />
         <div className="max-w-3xl mx-auto py-10 flex">
           <Menu />
-          <div className="flex-1 pl-4">
+          <div className="flex-1 ml-5 mr-5 lg:ml-8 lg:mr-8">
             {documents.map((doc, index) => (
               <Dropdown key={index} {...doc} />
             ))}

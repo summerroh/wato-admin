@@ -52,7 +52,7 @@ export default function Setting() {
         <Topbar title={"설정"} />
         <div className="max-w-3xl mx-auto py-10 flex">
           <Menu />
-          <div className="flex-1 pl-6 ">
+          <div className="flex-1 ml-5 mr-5 lg:ml-8 lg:mr-8">
             <h2 className="text-sm font-medium text-gray-500 pl-2">앱설정</h2>
             {documents1.map((doc, index) => (
               <Item key={index} {...doc} />

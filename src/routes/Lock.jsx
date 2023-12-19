@@ -35,7 +35,7 @@ export default function Lock() {
         <Topbar title={"화면 잠금 설정"} />
         <div className="max-w-3xl mx-auto py-10 flex">
           <Menu />
-          <div className="flex-1 pl-4">
+          <div className="flex-1 ml-5 mr-5 lg:ml-8 lg:mr-8">
             <div className="flex flex-col  items-center lg:px-20 text-center">
               <img src={lockIcon} alt="Alert Icon" />
               <h2 className="text-xl font-regular py-4">

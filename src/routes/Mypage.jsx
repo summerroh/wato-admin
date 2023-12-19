@@ -41,7 +41,7 @@ export default function Mypage() {
         <Topbar title={"마이페이지"} />
         <div className="max-w-3xl mx-auto py-10 flex">
           <Menu />
-          <div className="flex flex-1 ml-4 flex-wrap">
+          <div className="flex flex-1 ml-5 mr-5 lg:ml-8 lg:mr-8 flex-wrap">
             <Card title={"내정보"} icon={info} link="myinfo" />
             <Card title={"설정"} icon={setting} padding={true} link="setting" />
             <Card title={"공지사항"} icon={notice} link="notice" />
