@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Menu from "../components/Menu";
 import Topbar from "../components/Topbar";
+import LogoTopbar from "../components/LogoTopbar";
 import Carousel from "../components/Carousel";
 
 import korea from "../assets/korea.png";
@@ -94,7 +95,7 @@ export default function Index() {
   return (
     <div className="flex flex-col lg:flex-row bg-gray-100 min-h-screen">
       <div className="flex-1">
-        <Topbar title={"홈"} />
+        <LogoTopbar title={"홈"} />
         <div className="max-w-3xl mx-auto py-10 flex">
           <Menu />
           <div className="flex flex-1 ml-4 flex-wrap space-y-6">

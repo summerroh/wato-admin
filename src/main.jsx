@@ -19,6 +19,8 @@ import Customer from "./routes/Customer";
 import Write from "./routes/Write";
 import Started from "./routes/Started";
 import Login from "./routes/Login";
+import Signin from "./routes/Signin";
+import IndexDetail from "./routes/IndexDetail";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +86,14 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  {
+    path: "/indexdetail",
+    element: <IndexDetail />,
   },
 ]);
 
