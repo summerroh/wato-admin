@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      display: ["Poppins"],
+      pretendard: ["Pretendard"],
+      display: ["pretendard"],
+      sans: ["Pretendard", "sans-serif"],
     },
     backgroundColor: (theme) => ({
       ...theme("colors"),
@@ -13,6 +16,9 @@ export default {
     }),
     extend: {
       colors: {
+        primary: "#5855FE",
+        purple: "#5855FE",
+        graycircle: "#D9D9d9",
         life: "#54BD95",
         plusplus: "#0061FF",
         link: "#6F6F6F",

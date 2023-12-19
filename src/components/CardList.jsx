@@ -25,9 +25,7 @@ export const CardList = ({ items }) => {
   // ];
   // console.log(items);
   const high = items.filter((item) => item.emergency_nature > 60);
-  if (high) {
-    console.log("high");
-  }
+
   const medium = items.filter(
     (item) => item.emergency_nature >= 35 && item.emergency_nature < 59
   );

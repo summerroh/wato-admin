@@ -1,31 +1,28 @@
-import { useEffect, useState, useContext } from 'react';
-import add from '../images/add.svg';
+import { useEffect, useState, useContext } from "react";
+import add from "../images/add.svg";
 
-import { API } from '../../api';
-import { Navigate, useNavigate } from 'react-router';
-import { DiseasesContext } from '../store/DiseasesContext';
+import { API } from "../../api";
+import { Navigate, useNavigate } from "react-router";
 
 export const Form = () => {
   const [userList, setUserList] = useState([]);
   const [currentUser, setCurrentUser] = useState();
   const [inputValues, setInputValues] = useState({
-    name: '',
+    name: "",
     age: 0,
-    gender: '',
-    medicalHistory: '',
-    currentMedication: '',
-    symptom: '',
+    gender: "",
+    medicalHistory: "",
+    currentMedication: "",
+    symptom: "",
   });
   const [medicalHistories, setMedicalHistories] = useState([]);
   const [currentMedications, setCurrentMedications] = useState([]);
   const [symptoms, setSymptoms] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const { setDiseases } = useContext(DiseasesContext);
-
   const navigate = useNavigate();
   useEffect(() => {
-    console.log('useEffect');
+    console.log("useEffect");
     getListUsers();
   }, []);
 
@@ -35,11 +32,10 @@ export const Form = () => {
   };
 
   const getDiagnose = async () => {
-    console.log('get diagnose');
+    console.log("get diagnose");
     // console.log(currentUser._id, symptoms);
     const res = await API.GetDiagnose(currentUser._id, symptoms);
-    setDiseases(res);
-    navigate('/diagnosis');
+    navigate("/diagnosis");
   };
 
   const toggleDropdown = () => {
@@ -87,7 +83,7 @@ export const Form = () => {
                 type="button"
                 className="outline rounded-lg outline-[#CCDFFF] p-2 text-[#00003C] w-[253px] placeholder: text-base font-light"
                 id="menu-button"
-                aria-expanded={isOpen ? 'true' : 'false'}
+                aria-expanded={isOpen ? "true" : "false"}
                 aria-haspopup="true"
                 onClick={toggleDropdown}
               >
@@ -96,7 +92,7 @@ export const Form = () => {
 
                   <svg
                     className={`-mr-1 h-5 w-5 text-gray-400 transform ${
-                      isOpen ? 'rotate-180' : ''
+                      isOpen ? "rotate-180" : ""
                     }`}
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -180,7 +176,7 @@ export const Form = () => {
                 ...medicalHistories,
                 inputValues.medicalHistory,
               ]);
-              setInputValues({ ...inputValues, medicalHistory: '' });
+              setInputValues({ ...inputValues, medicalHistory: "" });
             }}
             style={{ backgroundImage: `url(${add})` }}
             className="bg-plus absolute left-[260px] top-14 rounded-full text-blueplus p-3 text-4xl w-[40px] h-[40px] bg-no-repeat bg-center"
@@ -215,7 +211,7 @@ export const Form = () => {
                 ...currentMedications,
                 inputValues.currentMedication,
               ]);
-              setInputValues({ ...inputValues, currentMedication: '' });
+              setInputValues({ ...inputValues, currentMedication: "" });
             }}
             style={{ backgroundImage: `url(${add})` }}
             className="bg-plus absolute left-[260px] top-14 rounded-full text-blueplus p-3 text-4xl w-[40px] h-[40px] bg-no-repeat bg-center "
@@ -250,7 +246,7 @@ export const Form = () => {
           <button
             onClick={() => {
               setSymptoms([...symptoms, inputValues.symptom]);
-              setInputValues({ ...inputValues, symptom: '' });
+              setInputValues({ ...inputValues, symptom: "" });
             }}
             style={{ backgroundImage: `url(${add})` }}
             className="bg-plus absolute left-[260px] top-14 rounded-full text-blueplus p-3 text-4xl w-[40px] h-[40px] bg-no-repeat bg-center "

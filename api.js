@@ -1,8 +1,7 @@
 import axios from "axios";
 
 class API {
-  static baseURL =
-    "http://backend-alb-1731735104.ap-northeast-2.elb.amazonaws.com/backend/v1";
+  static baseURL = "";
 
   static async ListUsers() {
     try {
