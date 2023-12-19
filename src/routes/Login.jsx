@@ -31,7 +31,7 @@ export default function Login() {
                 <div className="w-32">
                   <img src={kakao} alt="Home Icon" className="w-8 ml-2" />
                 </div>
-                카카오 로그인
+                카카오 로그인2
               </button>
             </Link>
 
